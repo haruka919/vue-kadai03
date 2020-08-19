@@ -13,9 +13,13 @@ export default new Vuex.Store({
   },
   mutations: {
     addTask (state, value) {
+      const newTask = value.trim()
+      if (!newTask) {
+        return
+      }
       state.tasks.push({
         id: state.uid++,
-        comment: value,
+        comment: newTask,
         completed: false
       })
     }
