@@ -18,7 +18,6 @@
               完了
             </label>
           </div>
-
           <table class="table is-fullwidth">
             <thead>
               <tr>
@@ -27,29 +26,10 @@
                 <th>状態</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>b</td>
-                <td><button type="button" class="ml-2 button is-small is-light">作業中</button><button type="button" class="ml-2 button is-small is-light">削除</button></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>b</td>
-                <td><button type="button" class="ml-2 button is-small is-light">作業中</button><button type="button" class="ml-2 button is-small is-light">削除</button></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>b</td>
-                <td><button type="button" class="ml-2 button is-small is-light">作業中</button><button type="button" class="ml-2 button is-small is-light">削除</button></td>
-              </tr>
-            </tbody>
+            <TodoList />
           </table>
           <h2 class="title is-4">新規タスクの追加</h2>
-          <div class="columns">
-            <input type="text" class="input">
-            <button type="button" class="ml-2 button is-dark">追加</button>
-          </div>
+          <TodoInput />
         </div>
       </div>
     </div>
@@ -57,9 +37,13 @@
 </template>
 
 <script>
+import TodoInput from './components/TodoInput.vue'
+import TodoList from './components/TodoList.vue'
 export default {
   name: 'App',
   components: {
+    TodoInput,
+    TodoList
   }
 }
 </script>
