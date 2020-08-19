@@ -26,10 +26,10 @@
                 <th>状態</th>
               </tr>
             </thead>
-            <TodoList :tasks="tasks"/>
+            <TodoList />
           </table>
           <h2 class="title is-4">新規タスクの追加</h2>
-          <TodoInput @add-task="addTask"/>
+          <TodoInput />
         </div>
       </div>
     </div>
@@ -44,20 +44,6 @@ export default {
   components: {
     TodoInput,
     TodoList
-  },
-  data () {
-    return {
-      tasks: []
-    }
-  },
-  methods: {
-    addTask (value) {
-      this.tasks.push({
-        id: this.tasks.length,
-        comment: value,
-        completed: false
-      })
-    }
   }
 }
 </script>

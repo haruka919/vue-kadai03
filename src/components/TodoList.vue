@@ -13,8 +13,10 @@
 <script>
 export default {
   name: 'TodoList',
-  props: {
-    tasks: Array
+  computed: {
+    tasks () {
+      return this.$store.getters.tasks
+    }
   }
 }
 </script>

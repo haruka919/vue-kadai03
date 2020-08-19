@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     addTask () {
-      this.$emit('add-task', this.comment)
+      this.$store.commit('addTask', this.comment)
       this.comment = ''
     }
   }
