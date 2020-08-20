@@ -22,6 +22,14 @@ export default new Vuex.Store({
         comment: newTask,
         completed: false
       })
+    },
+    deleteTask (state, taskId) {
+      state.tasks.splice(--taskId, 1)
+      // IDを振り直す
+      state.tasks.forEach((task, taskId) => {
+        task.id = ++taskId
+      })
+      state.uid = state.tasks.length + 1
     }
   }
 })
