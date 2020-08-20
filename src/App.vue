@@ -1,28 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container my-5">
+      <div class="columns">
+        <div class="column is-4 is-offset-4">
+          <h1 class="mb-3 title">Todoリスト</h1>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="status" checked value="all">
+              全て
+            </label>
+            <label class="radio">
+              <input type="radio" name="status" value="working">
+              作業中
+            </label>
+            <label class="radio">
+              <input type="radio" name="status" value="completed">
+              完了
+            </label>
+          </div>
+          <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>コメント</th>
+                <th>状態</th>
+              </tr>
+            </thead>
+            <TodoList />
+          </table>
+          <h2 class="title is-4">新規タスクの追加</h2>
+          <TodoInput />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TodoInput from './components/TodoInput.vue'
+import TodoList from './components/TodoList.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TodoInput,
+    TodoList
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import '../node_modules/bulma/bulma.sass';
 </style>
