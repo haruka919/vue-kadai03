@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tasks: [],
-    uid: 1
+    uid: 0
   },
   getters: {
     tasks: (state) => state.tasks
@@ -22,6 +22,13 @@ export default new Vuex.Store({
         comment: newTask,
         completed: false
       })
+    },
+    deleteTask (state, taskId) {
+      state.tasks = state.tasks.filter(task => task.id !== taskId)
+      // 配列が空の場合はid値を初期化
+      if (!state.tasks.length) {
+        state.uid = 0
+      }
     }
   }
 })
