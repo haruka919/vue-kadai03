@@ -29,6 +29,9 @@ export default new Vuex.Store({
       if (!state.tasks.length) {
         state.uid = 0
       }
+    },
+    changeState (state, { task, completed }) {
+      task.completed = completed
     }
   }
 })
