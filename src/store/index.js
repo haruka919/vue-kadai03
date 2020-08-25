@@ -31,7 +31,12 @@ export default new Vuex.Store({
       }
     },
     changeState (state, { task, completed }) {
-      task.completed = completed
+      state.tasks = state.tasks.map(item => {
+        if (item.id === task.id) {
+          item.completed = completed
+        }
+        return item
+      })
     }
   }
 })
