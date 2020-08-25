@@ -24,7 +24,7 @@ export default {
     },
     changeState (task) {
       this.$store.commit('changeState', {
-        task: task,
+        task,
         completed: !task.completed
       })
     }
