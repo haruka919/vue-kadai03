@@ -54,6 +54,9 @@ export default new Vuex.Store({
         }
         return item
       })
+    },
+    changeVisibility (state, value) {
+      state.visibility = value
     }
   }
 })

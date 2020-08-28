@@ -19,8 +19,13 @@
 export default {
   name: 'TodoController',
   computed: {
-    visibility () {
-      return this.$store.getters.visibility
+    visibility: {
+      get () {
+        return this.$store.getters.visibility
+      },
+      set (value) {
+        this.$store.commit('changeVisibility', value)
+      }
     }
   }
 }
