@@ -1,6 +1,6 @@
 <template>
   <tbody>
-    <tr v-for="task in tasks" :key="task.id">
+    <tr v-for="task in filteredTasks" :key="task.id">
       <td>{{ task.id }}</td>
       <td>{{ task.comment }}</td>
       <td>
@@ -14,8 +14,8 @@
 export default {
   name: 'TodoList',
   computed: {
-    tasks () {
-      return this.$store.getters.tasks
+    filteredTasks () {
+      return this.$store.getters.filteredTasks
     }
   },
   methods: {
