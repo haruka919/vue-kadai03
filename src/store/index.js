@@ -3,21 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const filters = {
-  all (tasks) {
-    return tasks
-  },
-  working (tasks) {
-    return tasks.filter((task) =>
-      !task.completed
-    )
-  },
-  completed (tasks) {
-    return tasks.filter((task) =>
-      task.completed
-    )
-  }
-}
 export default new Vuex.Store({
   state: {
     tasks: [],
@@ -25,7 +10,20 @@ export default new Vuex.Store({
     visibility: 'all'
   },
   getters: {
-    filteredTasks: (state) => filters[state.visibility](state.tasks),
+    filteredTasks (state) {
+      switch (state.visibility) {
+        case 'all':
+          return state.tasks
+        case 'working':
+          return state.tasks.filter((task) =>
+            !task.completed
+          )
+        case 'completed':
+          return state.tasks.filter((task) =>
+            task.completed
+          )
+      }
+    },
     visibility: (state) => state.visibility
   },
   mutations: {
