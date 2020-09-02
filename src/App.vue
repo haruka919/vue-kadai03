@@ -4,20 +4,7 @@
       <div class="columns">
         <div class="column is-4 is-offset-4">
           <h1 class="mb-3 title">Todoリスト</h1>
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="status" checked value="all">
-              全て
-            </label>
-            <label class="radio">
-              <input type="radio" name="status" value="working">
-              作業中
-            </label>
-            <label class="radio">
-              <input type="radio" name="status" value="completed">
-              完了
-            </label>
-          </div>
+          <TodoController />
           <table class="table is-fullwidth">
             <thead>
               <tr>
@@ -39,11 +26,13 @@
 <script>
 import TodoInput from './components/TodoInput.vue'
 import TodoList from './components/TodoList.vue'
+import TodoController from './components/TodoController.vue'
 export default {
   name: 'App',
   components: {
     TodoInput,
-    TodoList
+    TodoList,
+    TodoController
   }
 }
 </script>

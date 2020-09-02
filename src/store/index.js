@@ -6,10 +6,12 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tasks: [],
-    uid: 0
+    uid: 0,
+    visibility: 'all'
   },
   getters: {
-    tasks: (state) => state.tasks
+    tasks: (state) => state.tasks,
+    visibility: (state) => state.visibility
   },
   mutations: {
     addTask (state, value) {
@@ -37,6 +39,9 @@ export default new Vuex.Store({
         }
         return item
       })
+    },
+    changeVisibility (state, value) {
+      state.visibility = value
     }
   }
 })

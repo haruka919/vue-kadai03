@@ -1,6 +1,6 @@
 <template>
   <tbody>
-    <tr v-for="task in tasks" :key="task.id">
+    <tr v-for="task in filteredTasks" :key="task.id">
       <td>{{ task.id }}</td>
       <td>{{ task.comment }}</td>
       <td>
@@ -13,9 +13,28 @@
 <script>
 export default {
   name: 'TodoList',
+  data () {
+    return {
+      tasks: this.$store.getters.tasks
+    }
+  },
   computed: {
-    tasks () {
-      return this.$store.getters.tasks
+    visibility () {
+      return this.$store.getters.visibility
+    },
+    filteredTasks () {
+      if (this.visibility === 'all') {
+        return this.tasks
+      } else if (this.visibility === 'working') {
+        return this.tasks.filter((task) =>
+          !task.completed
+        )
+      } else if (this.visibility === 'completed') {
+        return this.tasks.filter((task) =>
+          task.completed
+        )
+      }
+      return this.tasks
     }
   },
   methods: {
