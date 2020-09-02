@@ -13,9 +13,28 @@
 <script>
 export default {
   name: 'TodoList',
+  data () {
+    return {
+      tasks: this.$store.getters.tasks
+    }
+  },
   computed: {
+    visibility () {
+      return this.$store.getters.visibility
+    },
     filteredTasks () {
-      return this.$store.getters.filteredTasks
+      if (this.visibility === 'all') {
+        return this.tasks
+      } else if (this.visibility === 'working') {
+        return this.tasks.filter((task) =>
+          !task.completed
+        )
+      } else if (this.visibility === 'completed') {
+        return this.tasks.filter((task) =>
+          task.completed
+        )
+      }
+      return this.tasks
     }
   },
   methods: {

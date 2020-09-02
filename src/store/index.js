@@ -10,20 +10,7 @@ export default new Vuex.Store({
     visibility: 'all'
   },
   getters: {
-    filteredTasks (state) {
-      switch (state.visibility) {
-        case 'all':
-          return state.tasks
-        case 'working':
-          return state.tasks.filter((task) =>
-            !task.completed
-          )
-        case 'completed':
-          return state.tasks.filter((task) =>
-            task.completed
-          )
-      }
-    },
+    tasks: (state) => state.tasks,
     visibility: (state) => state.visibility
   },
   mutations: {
